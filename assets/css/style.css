@@ -1,0 +1,36 @@
+ol {
+	font-size: 40px;
+	color: yellow;
+
+
+
+
+}
+
+
+.ringPicture{
+	width: =150px;
+    height: 150px;
+    margin-right: 10px;
+    bottom-margin: 50px;
+
+
+}
+
+body {
+	color: white;
+	background:  url("https://s-media-cache-ak0.pinimg.com/originals/52/7d/00/527d0015fa90f7ee869f119898a5b547.jpg");
+	background-size: cover;
+	background-position: center;
+    background-repeat: no-repeat;
+
+
+}
+
+p {font-size: 150px;
+		color: white;
+		-webkit-text-stroke-width: 1px;
+   		-webkit-text-stroke-color: black;
+
+
+}
