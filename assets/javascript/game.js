@@ -5,14 +5,18 @@ var lost = 0;
 var win = 0;
 var addedClick = 0;
 
+console.log(addedClick);
 
-
+var resetAndStart = function() {
 
 $("#ring").empty();
+$("#addedClick").empty();
+console.log("my added " + addedClick)
 
 //creates a random number between 19 to 120. 
 computerNumber = Math.floor(Math.random() *101) +19;
-//console.log(computerNumber);
+console.log("computer Number " + computerNumber);
+
 
 //generated number from computer is posted in the dom.
 $("#computerNumber").html("Random Number: " + computerNumber);
@@ -20,14 +24,14 @@ $("#computerNumber").html("Random Number: " + computerNumber);
 	for (var i = 0; i < 4; i++){
 
 	var random = Math.floor(Math.random() * 11) + 1;
-	//console.log(random);
+	console.log(random);
 
 	var ringPicture = $("<img>");
 
 	// First each crystal will be given the class ".crystal-image".
     // This will allow the CSS to take effect.
 
-    ringPicture.addClass("ringPicture");
+  ringPicture.addClass("ringPicture");
 	ringPicture.attr("src", "https://vignette3.wikia.nocookie.net/gltas/images/8/8c/Blue_lantern_ring_by_kalel7-d5hsqzu.png/revision/latest?cb=20170211201724");
 	ringPicture.attr("data-crystalvalue", random);
 
@@ -35,8 +39,9 @@ $("#computerNumber").html("Random Number: " + computerNumber);
     $("#ring").append(ringPicture);
 
 	}
+}
 
-//click the ring picture function
+resetAndStart();
 
 $(document).on('click', ".ringPicture", function() {
 
@@ -57,17 +62,15 @@ $(document).on('click', ".ringPicture", function() {
       win++;
 
       $("#win").html("Wins " + win);
- 
-
-      alert("You win!");
 
       addedClick = 0;
 
-      computerNumber = Math.floor(Math.random() *101) +19;
-//console.log(computerNumber);
 
-//generated number from computer is posted in the dom.
-$("#computerNumber").html("Random Number: " + computerNumber);
+ 
+      alert("You win!");
+
+	resetAndStart();
+    
     }
 
     else if (addedClick > computerNumber) {
@@ -76,15 +79,12 @@ $("#computerNumber").html("Random Number: " + computerNumber);
 
     	$("#lost").html("Losses " + lost);
 
+      addedClick = 0; 
+
       alert("You lose!!");
 
-      addedClick = 0;
+		resetAndStart();	
 
-      computerNumber = Math.floor(Math.random() *101) +19;
-//console.log(computerNumber);
-
-//generated number from computer is posted in the dom.
-$("#computerNumber").html("Random Number: " + computerNumber);
     }
 
   });
